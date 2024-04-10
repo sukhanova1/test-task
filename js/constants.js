@@ -1,5 +1,3 @@
-/** @format */
-
 export const colorsList = [
   'red',
   'greenyellow',
