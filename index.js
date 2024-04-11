@@ -1,7 +1,8 @@
-import { colorsList, resultCSSClasses } from './js/constants.js';
+import { colorsList, errorText, resultCSSClasses } from './js/constants.js';
 
 const resultBox = document.querySelector('#result');
 const form = document.querySelector('#form');
+const errorMessage = document.querySelector('#error-message');
 const resetButton = document.querySelector('#button-reset');
 
 const getChessBoardValues = () => ({
@@ -30,13 +31,33 @@ const drawChessBoard = (chessBoardValues) => {
   }
 };
 
-const resetChessBoard = () => window.location.reload();
+const validateFormFields = (chessBoardValues) => {
+  const { inputBoardSizeY, inputBoardSizeX, inputColors } = chessBoardValues;
 
-resetButton.addEventListener('click', resetChessBoard);
+  if (inputBoardSizeY && inputBoardSizeX && inputColors) {
+    errorMessage.innerHTML = '';
 
-form.addEventListener('submit', (e) => {
+    return true;
+  } else {
+    errorMessage.innerHTML = errorText;
+
+    return false;
+  }
+};
+
+const submitForm = (e) => {
   e.preventDefault();
   const chessBoardValues = getChessBoardValues();
 
+  if (!validateFormFields(chessBoardValues)) {
+    return;
+  }
+
+  resultBox.innerHTML = '';
   drawChessBoard(chessBoardValues);
-});
+};
+
+const resetChessBoard = () => window.location.reload();
+
+resetButton.addEventListener('click', resetChessBoard);
+form.addEventListener('submit', submitForm);

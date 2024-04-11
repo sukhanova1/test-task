@@ -14,3 +14,5 @@ export const resultCSSClasses = {
   resultRow: 'result__row',
   resultColorBox: 'result__color-box',
 };
+
+export const errorText = 'Please fill in all fields';

@@ -27,7 +27,7 @@
 }
 
 .form__input {
-  width: 180px;
+  width: 190px;
   padding: 7px 9px;
   border: 1px solid #8792ae;
   border-radius: 5px;
@@ -40,8 +40,15 @@
   color: #bfcae2;
 }
 
+.form__error-message {
+  align-self: center;
+  font-size: 13px;
+  color: red;
+}
+
 .form__btns {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -94,7 +101,7 @@
   color: #8792ae;
 }
 
-.result-box {
+.result__box {
   min-height: 200px;
   display: flex;
   flex-direction: column;
