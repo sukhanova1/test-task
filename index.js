@@ -59,5 +59,15 @@ const submitForm = (e) => {
 
 const resetChessBoard = () => window.location.reload();
 
-resetButton.addEventListener('click', resetChessBoard);
-form.addEventListener('submit', submitForm);
+document.addEventListener('DOMContentLoaded', () => {
+  resetButton.addEventListener('click', resetChessBoard);
+  form.addEventListener('submit', submitForm);
+});
+
+export {
+  getChessBoardValues,
+  drawChessBoard,
+  validateFormFields,
+  submitForm,
+  resetChessBoard,
+};
